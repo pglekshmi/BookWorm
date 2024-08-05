@@ -19,6 +19,15 @@
             
             list-style-type: none;
         }
+        .dropClass{
+            display: none;
+            margin-left: 20%;
+
+        }
+        img.a:hover + .dropClass{
+            display: block;
+        }
+        
     </style>
 </head>
 <body>
@@ -28,12 +37,40 @@
             <li>Gallery</li>
             <li>Contact Us</li>
         </ul>
-        <img style="width:50px;height: 50px;margin-right: 5px;" src="./Images/user.png">
+        <img class="a" style="width:50px;height: 50px;margin-right: 5px;" src="./Images/user.png">
     </div>
     </div>
+    <div>
+    <div style="display: flex;">
     <div style="margin-left: 30%;border-style: solid;width:550px;height: 35px; border-radius: 20px;margin-top: 10px;padding: 5px;">
-        <input style=" width: 500px;height: 30px;border-style:none;" type="text">
+        <input style=" width: 500px;height: 30px;border-style:none;outline: none;" type="text">
         <img style="width: 20px;height: 20px;" src="./Images/magnifying-glass.png">
     </div>
+    <div class="dropClass" >
+    <div style="display: grid; gap:15px;background-color: cornflowerblue;width: 90px;height: 150px;">
+        <label>Name</label>
+        <a>Issued</a>
+        <a>Due</a>
+        <a>WishList</a>
+    </div></div></div>
+</div>
+    <div style="display: flex;">
+    <div style="border-style: solid;width:200px;height:300px;background-color: cadetblue;margin-left: 10%;margin-top: 40px;">
+       <img style="width:200px;height:250px" src="./Images/fiction.jpeg">
+        <h1 style="text-align: center;">Fiction</h1>
+    </div>
+    <div style="border-style: solid;width:200px;height:300px;background-color: cadetblue;margin-left: 2%;margin-top: 40px;">
+        <img style="width:200px;height:250px" src="./Images/drama.png">
+        <h1 style="text-align: center;">Drama</h1>
+
+    </div>
+    <div style="border-style: solid;width:200px;height:300px;background-color: cadetblue;margin-left: 2%;margin-top: 40px;">
+        <img style="width:200px;height:250px" src="./Images/kids.png">
+        <h1 style="text-align: center;">Kids</h1>
+    </div>
+    <div style="border-style: solid;width:200px;height:300px;background-color: cadetblue;margin-left: 2%;margin-top: 40px;">
+        <img style="width:200px;height:250px" src="./Images/encyc.jpeg">
+        <h1 style="text-align: center;">Encyclopedia</h1>
+    </div></div>
 </body>
 </html>

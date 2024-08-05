@@ -8,47 +8,61 @@
     <script>
         function toggleClass(){
             console.log("hi");
-            // let ele = document.getElementById("demo");
-            // console.log(ele);
-            // ele.style.display="none";
+            let ele = document.getElementById("demo");
+            console.log(ele);
+            ele.style.opacity="0.5";
+            let ele1 = document.getElementById("signup");
+            ele1.style.display="block";
         }
     </script>
+    <style>
+        table, th,tr{
+            border-collapse: separate; /* Ensure the border-spacing property takes effect */
+            border-spacing: 0 20px; /* Add 10px space between rows */
+            margin:50px;
+            
+        }
+        tr{
+            padding:50px;
+        }
+    </style>
 </head>
 <body style="background-color: black;">
-    <!-- <div   style="border-style: solid;width:500px;height:350px;border-color: white;position: absolute;top:30%;left: 30%;visibility: visible;">
+    <div id="signup"  style="border-style: solid;width:700px;height:400px;border-color: white;position: absolute;top:30%;left: 30%;display: none;margin-right: 200px;">
         <table >
             <tr>
-                <td><label style="color: white;"> First Name:</label></td>
-                <td><input type="text" placeholder="Please enter your name"></td>
+                <td><label style="color: white;font-size: 20px;"> First Name:</label></td>
+                <td><input type="text" placeholder="Please enter your name" style="width:300px;height:20px"></td>
             </tr>
             <tr>
-                <td><label style="color: white;"> Last Name:</label></td>
+                <td><label style="color: white;font-size: 20px;"> Last Name:</label></td>
                 <td>
-                    <input type="text" placeholder="Please enter last name">
+                    <input type="text" placeholder="Please enter last name" style="width:300px;height:20px">
                 </td>
             </tr>
             <tr>
-                <td> <label style="color: white;"> User name:</label></td>
-                <td> <input type="text" placeholder="Please enter username"></td>
+                <td> <label style="color: white;font-size: 20px;"> User name:</label></td>
+                <td> <input type="text" placeholder="Please enter username" style="width:300px;height:20px"></td>
             </tr>
             <tr>
-                <td><label style="color: white;"> Password:</label></td>
-                <td> <input type="password" placeholder="Please enter password"></td>
+                <td><label style="color: white;font-size: 20px;"> Password:</label></td>
+                <td> <input type="password" placeholder="Please enter password" style="width:300px;height:20px"></td>
             </tr>
             <tr>
                 <td>
-                    <label style="color: white;">Confirm Password:</label>
+                    <label style="color: white;font-size: 20px;">Confirm Password:</label>
                 </td>
-                <td><input type="password" placeholder="Please re-enter password"></td>
+                <td><input type="password" placeholder="Please re-enter password" style="width:300px;height:20px"></td>
             </tr>
         </table>
+        
         <button >Sign-up</button>
-    </div> -->
+    </div>
     
-    <div id="demo" style="display: block;">
+    <div id="demo" style="opacity: 1.0;">
     <div style="margin-left: 80%;">
-    <button style=" border-radius: 30px;border-style: solid;border-color: brown;width: 100px;height: 40px;background-color: cadetblue;"><a style="text-decoration: none;color: black;font-size: 18px;" href="">Login</a></button>
-    <button  style="color: black; margin-left: 20px; border-radius: 30px;border-style: solid;border-color: brown;width: 100px;height: 40px;background-color: cadetblue;text-decoration: none;" onclick="toggleClass()" ><a  style="font-size: 18px;text-decoration: none;color: black;" href="">Signup</a></button></div>
+    <button style=" border-radius: 30px;border-style: solid;border-color: brown;width: 100px;height: 40px;background-color: cadetblue;color: black;font-size: 18px;">Login</button>
+    <button  style="color: black; margin-left: 20px; border-radius: 30px;border-style: solid;border-color: brown;width: 100px;height: 40px;background-color: cadetblue;text-decoration: none;font-size: 18px;color: black;" onclick="toggleClass()" >Signup</button></div>
     <h1 style="color: white;margin-top: 100px;">Book<span style="color: cadetblue;">Worm</span></h1>
     <p style="color: white;margin-top: 50px;">Come & Be a character here......</p>
    </div>
