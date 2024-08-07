@@ -39,4 +39,4 @@ const authenticate=async (req,res,next)=>{
       }
 }
 
-export {authenticate};
+export {authenticate,extractToken};

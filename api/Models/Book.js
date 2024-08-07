@@ -1,25 +1,24 @@
 import {Schema,model} from 'mongoose';
 
 const registerSchema = new Schema({
-    BookId:{
-        required:true,
-        type:String,
-        unique:true
-    },
+   
     BookName:{
         required:true,
         type:String,
-        unique:true
+        unique:true,
+        immutable:true
          
     },
     Author:{
         required:true,
          type:String,
+         immutable:true
     },
     ISBN:{
         required:true,
          type:String,
-         unique:true
+         unique:true,
+         immutable:true
     },
     Category:{
         required:true,
@@ -29,7 +28,7 @@ const registerSchema = new Schema({
         required:true,
          type:Number,
     },
-    Prize:{
+    Price:{
         required:true,
         type:Number,
         

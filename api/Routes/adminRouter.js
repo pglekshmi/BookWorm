@@ -52,6 +52,8 @@ router.post('/login', async (req, res) => {
     try {
         const { UserName, Password } = req.body;
         const user = await SignUp.findOne({ UserName });
+        const UserId= (user._id).toString();
+        console.log(UserId);
 
         if (!user) {
             res.status(404).json({ message: 'User not found' });
@@ -60,7 +62,7 @@ router.post('/login', async (req, res) => {
         const isvalid = await bcrypt.compare(Password, user.Password);
         if (isvalid) {
 
-            const token = jwt.sign({ UserName: UserName, UserRole: user.UserRole }, secret_key, { expiresIn: '1h' })
+            const token = jwt.sign({ UserName: UserName, UserRole: user.UserRole,UserId:UserId }, secret_key, { expiresIn: '1h' })
             console.log(token);
 
             res.cookie('authToken', token, {
@@ -81,27 +83,27 @@ router.post('/addBook', authenticate, async (req, res) => {
     console.log(req.user);
     const user = req.user;
     
-    const { BookName, Author, ISBN,Category, Copies, Prize } = req.body;
-    console.log(typeof Prize);
+    const { BookName, Author, ISBN,Category, Copies, Price } = req.body;
+    console.log(typeof Price);
     try {
         
         if (user == "admin") {
-            const count = await Counter.findOneAndUpdate(
-                {Id:"BookId"},
-                {"$inc":{"Seq":1}},
-                {new:true,upsert: true }
-            );
+            // const count = await Counter.findOneAndUpdate(
+            //     {Id:"BookId"},
+            //     {"$inc":{"Seq":1}},
+            //     {new:true,upsert: true }
+            // );
             
-            console.log(count.Seq);
-             const BookId = 'B'+count.Seq;
+            // console.log(count.Seq);
+            //  const BookId = 'B'+count.Seq;
             const newBook = {
-                BookId,
+               
                 BookName,
                 Author,
                 ISBN,
                 Category,
                 Copies,
-                Prize
+                Price
             }
             console.log(newBook);
             try {
@@ -113,11 +115,33 @@ router.post('/addBook', authenticate, async (req, res) => {
 
             }
          }
+         else{
+            res.status(400).json({message:"Unauthorized Access"})
+         }
 
     }
     catch (error) {
         res.status(401).json({ message: "Unauthorized Access" });
 
+    }
+})
+
+router.patch('/updateBook',authenticate,async(req,res)=>{
+    try{
+        const user=req.user;
+        if(user=='admin'){
+  console.log(req.query.id);
+  const search =req.query.id; 
+  const {Category,Copies,Prize} = req.body;
+  const result=await Book.updateOne({ISBN:search},{$set:{Category:Category,
+                                            Copies:Copies,
+                                           Prize:Prize}});
+    res.status(200).json({message:"Data Updated"})}
+else{
+    res.status(401).json({message:"Unauthorized Access"})
+}}
+    catch(error){
+        res.status(500).json({message:"Internal Server error"})
     }
 })
 
